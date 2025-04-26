@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Fiman</title>
+    <style>
+        /* Consistent with your color scheme */
+        :root {
+            --violet: #8A2BE2;
+            --black: #000000;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--black);
+            padding: 2rem;
+            border-bottom: 2px solid var(--violet);
+            text-align: center;
+        }
+        
+        .logo {
+            color: var(--violet);
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            border: 1px solid var(--violet);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: var(--violet);
+            color: var(--black);
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        h1 {
+            color: var(--violet);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        h2 {
+            color: var(--violet);
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--violet);
+            padding-bottom: 0.5rem;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .team {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+        
+        .team-member {
+            background-color: rgba(138, 43, 226, 0.1);
+            border: 1px solid var(--violet);
+            border-radius: 10px;
+            padding: 1.5rem;
+            width: 250px;
+            text-align: center;
+        }
+        
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--violet);
+            margin-bottom: 1rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            border: 1px solid var(--violet);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--violet);
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background-color: var(--black);
+            border-top: 2px solid var(--violet);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--violet);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">FIMAN</div>
+        <p>Your Personal Finance Companion</p>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="calculator.html">Calculator</a>
+            <a href="expenses.html">Expenses</a>
+            <a href="aboutUs.html">About Us</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>About Fiman</h1>
+        
+        <section>
+            <h2>Our Story</h2>
+            <p>Founded in 2023, Fiman began as a simple idea: to create financial tools that are powerful yet accessible to everyone. We believe that managing your finances shouldn't require a degree in accounting or expensive software.</p>
+            <p>Our team of developers and financial experts came together to build tools that help you track expenses, calculate complex financial scenarios, and gain better control over your money - all with an interface that's intuitive and easy to use.</p>
+        </section>
+        
+        <section>
+            <h2>Our Mission</h2>
+            <p>We're on a mission to democratize financial literacy. In a world where money management is increasingly complex, we provide the tools and knowledge to help you:</p>
+            <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
+                <li>Track your spending effortlessly</li>
+                <li>Understand where your money goes</li>
+                <li>Plan for your financial future</li>
+                <li>Make informed financial decisions</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Key Features</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Expense Tracking</h3>
+                    <p>Categorize and visualize your spending patterns with our intuitive expense tracker.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧮</div>
+                    <h3>Advanced Calculator</h3>
+                    <p>From basic arithmetic to financial functions, our calculator handles it all.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Cross-Platform</h3>
+                    <p>Access your financial data anywhere, on any device.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Meet The Team</h2>
+            <div class="team">
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Team Member">
+                    <h3>Alex Johnson</h3>
+                    <p>Founder & CEO</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Team Member">
+                    <h3>Sarah Chen</h3>
+                    <p>Lead Developer</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Team Member">
+                    <h3>Michael Rodriguez</h3>
+                    <p>Financial Analyst</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Contact Us</h2>
+            <p>Have questions or suggestions? We'd love to hear from you!</p>
+            <p>Email: <a href="mailto:contact@fiman.com" style="color: var(--violet);">contact@fiman.com</a></p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fiman. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#"><span>📱</span></a>
+            <a href="#"><span>💻</span></a>
+            <a href="#"><span>📧</span></a>
+        </div>
+    </footer>
+</body>
+</html>

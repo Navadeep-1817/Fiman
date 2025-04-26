@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record Your Expenses</title>
+    <link rel="stylesheet" href="record-finance1.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Record Your Expenses</h2>
+        <form action="record-finance12.php" method="POST">
+            <label>Select Date:</label>
+            <input type="date" name="date" required>
+            
+            <label>Health 🏥</label>
+            <input type="number" name="health" step="0.01" min="0">
+
+            <label>Study 📚</label>
+            <input type="number" name="study" step="0.01" min="0">
+
+            <label>Grocery 🛒</label>
+            <input type="number" name="grocery" step="0.01" min="0">
+
+            <label>Clothing 👕</label>
+            <input type="number" name="clothing" step="0.01" min="0">
+
+            <label>Housing 🏡</label>
+            <input type="number" name="housing" step="0.01" min="0">
+
+            <label>Others 🔷</label>
+            <input type="number" name="others" step="0.01" min="0">
+
+            <button type="submit">Save Expense</button>
+        </form>
+    </div>
+</body>
+</html>

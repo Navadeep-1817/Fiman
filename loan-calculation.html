@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Calculator</title>
+    <link rel="stylesheet" href="loan-calculation.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Loan Calculator</h2>
+        <label for="loanAmount">Loan Amount:</label>
+        <input type="number" id="loanAmount" placeholder="Enter loan amount" />
+        <label for="interestRate">Annual Interest Rate (%):</label>
+        <input type="number" id="interestRate" placeholder="Enter interest rate" />
+        <label for="loanTenure">Loan Tenure (years):</label>
+        <input type="number" id="loanTenure" placeholder="Enter loan tenure" />
+        <label for="delayMonths">Delayed Months:</label>
+        <input type="number" id="delayMonths" placeholder="Enter delayed months (if any)" />
+        <button onclick="calculateLoan()">Calculate Loan</button>
+        <h3 id="loanResult"></h3>
+    </div>
+    <script>
+        function calculateLoan() {
+            let loanAmount = parseFloat(document.getElementById('loanAmount').value);
+            let interestRate = parseFloat(document.getElementById('interestRate').value) / 100;
+            let loanTenure = parseFloat(document.getElementById('loanTenure').value);
+            let delayMonths = parseFloat(document.getElementById('delayMonths').value) || 0;
+            let totalInterest = loanAmount * interestRate * loanTenure;
+            let totalAmount = loanAmount + totalInterest;
+            let penalty = (totalAmount / (loanTenure * 12)) * delayMonths * 0.02; 
+            let finalAmount = totalAmount + penalty;
+            document.getElementById('loanResult').innerText = `Total Interest: ₹${totalInterest.toFixed(2)} | Grand Total: ₹${totalAmount.toFixed(2)} | Final Amount after Delay: ₹${finalAmount.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

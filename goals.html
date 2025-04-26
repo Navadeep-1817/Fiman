@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Goals</title>
+    <link rel="stylesheet" href="goals.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>🎯 Financial Goals Tracker</h1>
+    </header>
+
+    <main>
+        <!-- Goal Input Form -->
+        <section class="goal-form">
+            <h2>Add a New Goal</h2>
+            <input type="text" id="goal-name" placeholder="Goal Name" required>
+            <input type="number" id="goal-amount" placeholder="Target Amount ($)" required>
+            <input type="date" id="goal-deadline" required>
+            <button id="add-goal-btn">Add Goal</button>
+        </section>
+
+        <!-- Goals List -->
+        <section class="goals-container">
+            <h2>Current Goals</h2>
+            <ul id="goals-list"></ul>
+        </section>
+
+        <!-- Line Chart -->
+        <section class="chart-container">
+            <h2>Progress Over Time</h2>
+            <canvas id="progressChart"></canvas>
+        </section>
+    </main>
+</body>
+</html>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const goalNameInput = document.getElementById("goal-name");
+    const goalAmountInput = document.getElementById("goal-amount");
+    const goalDeadlineInput = document.getElementById("goal-deadline");
+    const addGoalBtn = document.getElementById("add-goal-btn");
+    const goalsList = document.getElementById("goals-list");
+    const ctx = document.getElementById("progressChart").getContext("2d");
+
+    let progressChart = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: [],
+            datasets: [{
+                label: "Total Savings Over Time",
+                data: [],
+                borderColor: "#693d95",
+                backgroundColor: "rgba(105, 61, 149, 0.2)",
+                tension: 0.4
+            }]
+        },
+        options: { responsive: true }
+    });
+
+    function loadGoals() {
+        fetch("fetch-goal.php")
+            .then(response => response.json())
+            .then(goals => {
+                goalsList.innerHTML = "";
+                goals.forEach(goal => {
+                    const li = document.createElement("li");
+                    li.textContent = `${goal.goal_name} - $${goal.saved_amount} / $${goal.target_amount}`;
+                    li.onclick = () => loadProgress(goal.id);
+                    goalsList.appendChild(li);
+                });
+            });
+    }
+
+    function loadProgress(goalId) {
+        fetch(`fetch-progress.php?goal_id=${goalId}`)
+            .then(response => response.json())
+            .then(data => {
+                progressChart.data.labels = data.dates;
+                progressChart.data.datasets[0].data = data.amounts;
+                progressChart.update();
+            });
+    }
+
+    addGoalBtn.addEventListener("click", () => {
+        const name = goalNameInput.value;
+        const amount = parseFloat(goalAmountInput.value);
+        const deadline = goalDeadlineInput.value;
+
+        if (name && amount && deadline) {
+            fetch("save-goal.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, amount, deadline })
+            }).then(() => {
+                goalNameInput.value = "";
+                goalAmountInput.value = "";
+                goalDeadlineInput.value = "";
+                loadGoals();
+            });
+        }
+    });
+
+    loadGoals();
+});
+</script>

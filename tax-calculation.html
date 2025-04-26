@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tax Calculator</title>
+    <link rel="stylesheet" href="tax-calculation.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Income Tax Calculator</h2>
+        <label for="monthlyIncome">Monthly Income:</label>
+        <input type="number" id="monthlyIncome" placeholder="Enter monthly income" />
+        <button onclick="calculateTax()">Calculate Tax</button>
+        <h3 id="result"></h3>
+    </div>
+
+    <script>
+        function calculateTax() {
+            let monthlyIncome = parseFloat(document.getElementById('monthlyIncome').value);
+            let annualIncome = monthlyIncome * 12;
+            let tax = 0;
+            
+            if (annualIncome <= 250000) {
+                tax = 0;
+            } else if (annualIncome <= 500000) {
+                tax = (annualIncome - 250000) * 0.05;
+            } else if (annualIncome <= 1000000) {
+                tax = (250000 * 0.05) + (annualIncome - 500000) * 0.2;
+            } else {
+                tax = (250000 * 0.05) + (500000 * 0.2) + (annualIncome - 1000000) * 0.3;
+            }
+            
+            document.getElementById('result').innerText = `Annual Tax: ₹${tax.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

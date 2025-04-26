@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiMan - Finance Dashboard</title>
+    <link rel="stylesheet" href="http://localhost/FinanceManagement/FimanHomePage.css">
+</head>
+<body>
+    <header>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-left">
+                <!-- FiMan Logo -->
+                <div class="logo">FiMan</div>
+                <ul class="nav-links">
+                    <!-- Dashboard Link with ID -->
+                    <li>
+                        <a href="#" id="dashboard-btn">Dashboard </a>
+                        <div class="dropdown-menu" id="dashboard-dropdown">
+                            <ul>
+                                <li><a href="review_loan.php">📜review-Loans</a></li>
+                                <li><a href="review_property.php">📜 review Property</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="savings.php">Savings</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                
+                <a href="contactUs.html" class="nav-btn">Contact Us</a>
+                <a href="aboutUs.html" class="nav-btn">about Us</a>
+                <a href="logout.php" id="logoutBtn" class="nav-btn">Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Welcome to FiMan - Your Finance Dashboard</h1>
+
+        <!-- Card Container -->
+        <div class="card-container">
+            <div class="card">
+                <h2>📌 Record Your Finances</h2>
+                <p>Log your daily expenses and income.</p>
+                <a href="http://localhost/FinanceManagement/record-finance1.html" class="card-btn">Record Now</a>
+            </div>
+
+            <div class="card">
+                <h2>🔍 Review Your Finances</h2>
+                <p>Analyze your spending and savings trends.</p>
+                <a href="review.html" class="card-btn">Review Now</a>
+            </div>
+
+            <div class="card">
+                <h2>🧮 Financial Calculators</h2>
+                <p>Calculate loans, taxes, and savings all in one place.</p>
+                <a href="calculate.html" class="card-btn">Use Calculators</a>
+            </div>
+
+            <div class="card">
+                <h2>💰 Save Loan</h2>
+                <p>Record and track loan data.</p>
+                <a href="save-loan.html" class="card-btn">Save Loan</a>
+            </div>
+
+            <div class="card">
+                <h2>Goals</h2>
+                <p>Record and track your saving goals.</p>
+                <a href="goals.html" class="card-btn">Record Goal</a>
+            </div>
+
+            <div class="card">
+                <h2> Add Property</h2>
+                <p>Record and track your properties.</p>
+                <a href="addProperty.php" class="card-btn">Record Property</a>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const dashboardBtn = document.getElementById("dashboard-btn");
+            const dropdown = document.getElementById("dashboard-dropdown");
+
+            dashboardBtn.addEventListener("click", function (event) {
+                event.preventDefault(); // Prevents page reload
+                event.stopPropagation();
+                dropdown.classList.toggle("show");
+            });
+
+            // Close dropdown if user clicks outside
+            document.addEventListener("click", function (event) {
+                if (!event.target.closest("#dashboard-btn") && !event.target.closest("#dashboard-dropdown")) {
+                    dropdown.classList.remove("show");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

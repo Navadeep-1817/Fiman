@@ -1,0 +1,116 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body Styling */
+body {
+    background: white; /* White background */
+    color: #333; /* Default text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+/* Container Styling */
+.container {
+    background: white; /* White background */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Heading Styling */
+h2 {
+    color: #693d95; /* Dark violet */
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+/* Label Styling */
+label {
+    font-size: 1.1rem;
+    color: #555; /* Neutral gray for labels */
+    font-weight: 500;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Input Field Styling */
+input[type="number"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0; /* Light gray border */
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333; /* Default text color */
+    margin-bottom: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+    border-color: #9c67d1; /* Light violet */
+    outline: none;
+    box-shadow: 0 0 8px rgba(156, 103, 209, 0.3); /* Light violet shadow */
+}
+
+/* Button Styling */
+button {
+    background: #9c67d1; /* Light violet */
+    color: white; /* White text */
+    border: none;
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background: #693d95; /* Dark violet */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(105, 61, 149, 0.3); /* Dark violet shadow */
+}
+
+/* Result Styling */
+h3 {
+    font-size: 1.25rem; /* Reduced font size */
+    color: #693d95; /* Dark violet */
+    margin-top: 1.5rem;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace; /* Stylish monospace font */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.1rem; /* Smaller font size for mobile */
+    }
+
+    input[type="number"] {
+        padding: 0.65rem;
+    }
+
+    button {
+        padding: 0.75rem;
+    }
+}
